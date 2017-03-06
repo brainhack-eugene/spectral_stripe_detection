@@ -7,7 +7,8 @@ from matplotlib import pyplot as plt
 from librosa.feature import spectral_centroid
 from skimage import segmentation, morphology
 
-
+#########
+# Previous Attempts
 #load image
 img = nipy.io.files.as_image('/Users/Jonny/Documents/brainhaq/rucyb2_4d.nii.gz')
 img = np.rot90(img,axes=(0,2))
@@ -34,7 +35,8 @@ kern = np.array([[imgmax],[0.],[imgmax]])
 conv = signal.convolve2d(img[:,50,:,47],kern)
 plt.imshow(conv)
 
-
+#######
+# The basic function
 def find_stripes(img, coronal_slice):
     # Use spectral density estimations to find stripes
     # Stripes are essentially high-frequency artefacts
